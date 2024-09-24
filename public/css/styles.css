@@ -2,5 +2,214 @@
 *,
 *:before,
 *:after {
-  box-sizing: border-box;
+    box-sizing: border-box; 
+}
+
+/******* Body Styles ***************/
+/* Set default styles for body */
+body {
+    font-family: Arial, sans-serif; /* Font style */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    background-image: url('../images/site/small_check.jpg'); /* Background image */
+}
+
+/******* Wrapper Styles ***************/
+
+#wrapper {
+    max-width: 80%; /* Max width */
+    margin: 10px auto; /* Centering wrapper */
+    background-color: #e6e6e6; /* White background */
+    border: 4px solid #005c99; /* Border color */
+    border-radius: 10px; /* Rounded corners */
+}
+
+/******* Header Styles ***************/
+
+#top-header {
+    display: flex; /* Flexbox layout */
+    justify-content: space-between; /* Space between items */
+    padding: 0.625rem 1.25rem; /* Padding around header */
+    background-color: #004080;
+}
+
+.siteName a {
+    font-size: 2.5rem; /* Site name font size */
+    color: #ffffff; /* Text color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Bold text */
+}
+
+/* My ACCOUNT  */
+#tools a {
+   font-size: 1.5rem;
+    color: #ffffff; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+/******* Navigation Styles ***************/
+
+nav {
+  background-color: #003366; /* Navigation background color */
+}
+
+nav ul {
+    list-style-type: none; /* Remove default list styles */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+    display: flex; /* Flexbox layout */
+    justify-content: space-around; /* Space between items */
+}
+
+nav ul li {
+    padding: 1rem; /* Padding for list items */
+    color: #ffffff; /* Text color */
+    cursor: pointer; /* Pointer cursor on hover */
+    flex-grow: 1;
+    text-align: center; /* Center text */
+}
+
+nav ul li:hover {
+  background-color: #002244; /* Background on hover */
+}
+
+/******* Main Content Area ***************/
+
+main {
+    padding: 1rem; /* Padding around main content */
+}
+
+/******* DMC Delorean Section ***************/
+
+#Delorean {
+    position: relative; /* Relative positioning */
+    height: 90vh; /* Full viewport height */
+    overflow: hidden; /* Hide overflow */
+    display: flex; /* Flexbox layout */
+    align-items: center; /* Center items */
+}
+
+.dmc-delorean {
+    position: relative; /* Relative positioning */
+    color: #005c99; /* Text color */
+    z-index: 2; 
+    background-color: rgba(250, 250, 250, 0.8); /* Background color */
+    margin-left: 10%; /* Left margin */
+    padding: 1rem;
+}
+
+.dmc-delorean h2 {
+    font-size: 3rem; 
+}
+
+.dmc-delorean ul {
+    list-style-type: none; /* Remove default list styles */
+    padding: 0; /* Remove padding */
+    margin: 10px 0; /* Vertical margin */
+    font-size: 2rem; /* Font size for list items */
+}
+
+.dmc-delorean li {
+    margin-bottom: 1rem; /* Bottom margin for list items */
+}
+
+/******* Button Styles ***************/
+
+.btn {
+    display: inline-block; /* Inline-block display */
+    background-color: #005c99; /* Button background color */
+    color: #ffffff; /* Button text color */
+    padding: 1rem 2rem; /* Padding */
+    text-decoration: none; /* Remove underline */
+    font-size: 1.5rem; /* Font size */
+}
+
+.btn:hover {
+  background-color: #003366; /* Darker blue on hover */
+}
+
+
+/******* DMC Image Styles ***************/
+/* Car image */
+
+.dmc-image {
+    position: absolute; /* Absolute positioning */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+}
+
+/******* Reviews and Upgrades Section ***************/
+
+#delorean-content {
+  display: flex; /* Flexbox layout */
+  justify-content: space-between; /* Space between columns */
+  gap: 2rem; /* Gap between columns */
+}
+
+#reviews {
+    flex: 1; /* Flex-grow for equal width */
+    order: 2; /* Move reviews to the right */
+}
+
+#upgrades {
+    flex: 1; /* Flex-grow for equal width */
+    order: 1; /* Move upgrades to the left */
+}
+
+/******* Upgrade Grid Styles ***************/
+
+.upgrade-grid {
+    display: grid; /* Grid layout */
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 10px; /* Space between grid items */
+}
+
+.upgrade-item img {
+    background-color: #00b8e6; /* Background color for images */
+    width: 100%; /* Full width */
+    height: 100px; /* Fixed height */
+    object-fit: contain; /* Maintain aspect ratio */
+    padding: 10px; /* Padding around images */
+
+}
+
+.upgrade-item {
+    text-align: center; /* Centra el texto dentro del contenedor */
+}
+
+
+/******* Reviews Section Styles ***************/
+/*  Styles for the reviews section */
+#reviews ul {
+    padding: 1rem;
+    font-size: 1.5rem;
+}
+
+#reviews li {
+    margin-bottom: 1rem;
+}
+
+/******* Responsive Design ***************/
+ /* Responsive styles for small screens */
+@media (max-width: 768px) {
+    #upgrades, #reviews {
+        width: 100%; /* Full width */
+    }
+    
+    body {
+        background-image: none; /* Hide background image on small screens */
+    }
+    
+    #wrapper {
+        max-width: 100%; /* Full width for wrapper */
+        margin: 0; /* Remove margin */
+    }
+    
+    #delorean-content {
+        display: block; /* Stack items in block layout */
+    }
+
+    .dmc-image {
+        content: url('../images/vehicles/delorean-tn.jpg'); /* Change image on mobile */
+    }
 }
