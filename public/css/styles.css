@@ -1,100 +1,101 @@
-/******* Change Box Model ***************/
+/******* Change Box Model ***************/ 
 *,
 *:before,
 *:after {
     box-sizing: border-box; 
 }
 
-/******* Body Styles ***************/
-/* Set default styles for body */
+/******* Body Styles ***************/ 
 body {
-    font-family: Arial, sans-serif; /* Font style */
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
-    background-image: url('../images/site/small_check.jpg'); /* Background image */
+    font-family: Arial, sans-serif; 
+    margin: 0; 
+    padding: 0; 
+    background-image: url('../images/site/small_check.jpg'); 
 }
 
-/******* Wrapper Styles ***************/
-
+/******* Wrapper Styles ***************/ 
 #wrapper {
-    max-width: 80%; /* Max width */
-    margin: 10px auto; /* Centering wrapper */
-    background-color: #e6e6e6; /* White background */
-    border: 4px solid #005c99; /* Border color */
-    border-radius: 10px; /* Rounded corners */
+    max-width: 80%; 
+    margin: 10px auto; 
+    background-color: #e6e6e6; 
+    border: 4px solid #005c99; 
+    border-radius: 10px; 
 }
 
-/******* Header Styles ***************/
-
+/******* Header Styles ***************/ 
 #top-header {
-    display: flex; /* Flexbox layout */
-    justify-content: space-between; /* Space between items */
-    padding: 0.625rem 1.25rem; /* Padding around header */
+    display: flex; 
+    justify-content: space-between; 
+    padding: 0.625rem 1.25rem; 
     background-color: #004080;
 }
 
 .siteName a {
-    font-size: 2.5rem; /* Site name font size */
-    color: #ffffff; /* Text color */
-    text-decoration: none; /* Remove underline */
-    font-weight: bold; /* Bold text */
+    font-size: 2.5rem; 
+    color: #ffffff; 
+    text-decoration: none; 
+    font-weight: bold; 
 }
 
-/* My ACCOUNT  */
 #tools a {
    font-size: 1.5rem;
-    color: #ffffff; /* Link color */
-    text-decoration: none; /* Remove underline */
+   color: #ffffff; 
+   text-decoration: none; 
 }
 
-/******* Navigation Styles ***************/
-
+/******* Navigation Styles ***************/ 
 nav {
-  background-color: #003366; /* Navigation background color */
+    background-color: #000; 
+}
+
+nav a {
+    color: #ffffff; 
+    text-decoration: none; 
+    font-weight: bold; 
 }
 
 nav ul {
-    list-style-type: none; /* Remove default list styles */
-    padding: 0; /* Remove padding */
-    margin: 0; /* Remove margin */
-    display: flex; /* Flexbox layout */
-    justify-content: space-around; /* Space between items */
+    list-style-type: none; 
+    padding: 0; 
+    margin: 0; 
+    display: flex; 
+    justify-content: space-around; 
 }
 
 nav ul li {
-    padding: 1rem; /* Padding for list items */
-    color: #ffffff; /* Text color */
-    cursor: pointer; /* Pointer cursor on hover */
+    padding: 1rem; 
+    color: #ffffff; 
+    font-weight: bold; 
+    cursor: pointer; 
     flex-grow: 1;
-    text-align: center; /* Center text */
+    text-align: center; 
 }
 
 nav ul li:hover {
-  background-color: #002244; /* Background on hover */
+    background-color: #b2d0ef; 
 }
 
-/******* Main Content Area ***************/
-
+/******* Main Content Area ***************/ 
 main {
-    padding: 1rem; /* Padding around main content */
+    padding: 1rem; 
+    background-color: #f4f4f4; 
 }
 
-/******* DMC Delorean Section ***************/
-
+/******* DMC Delorean Section ***************/ 
 #Delorean {
-    position: relative; /* Relative positioning */
-    height: 90vh; /* Full viewport height */
-    overflow: hidden; /* Hide overflow */
-    display: flex; /* Flexbox layout */
-    align-items: center; /* Center items */
+    position: relative; 
+    height: 90vh; 
+    overflow: hidden; 
+    display: flex; 
+    align-items: center; 
 }
 
 .dmc-delorean {
-    position: relative; /* Relative positioning */
-    color: #005c99; /* Text color */
+    position: relative; 
+    color: #005c99; 
     z-index: 2; 
-    background-color: rgba(250, 250, 250, 0.8); /* Background color */
-    margin-left: 10%; /* Left margin */
+    background-color: rgba(250, 250, 250, 0.8); 
+    margin-left: 10%; 
     padding: 1rem;
 }
 
@@ -103,83 +104,69 @@ main {
 }
 
 .dmc-delorean ul {
-    list-style-type: none; /* Remove default list styles */
-    padding: 0; /* Remove padding */
-    margin: 10px 0; /* Vertical margin */
-    font-size: 2rem; /* Font size for list items */
+    list-style-type: none; 
+    padding: 0; 
+    margin: 10px 0; 
+    font-size: 2rem; 
 }
 
 .dmc-delorean li {
-    margin-bottom: 1rem; /* Bottom margin for list items */
+    margin-bottom: 1rem; 
 }
 
-/******* Button Styles ***************/
-
+/******* Button Styles ***************/ 
 .btn {
-    display: inline-block; /* Inline-block display */
-    background-color: #005c99; /* Button background color */
-    color: #ffffff; /* Button text color */
-    padding: 1rem 2rem; /* Padding */
-    text-decoration: none; /* Remove underline */
-    font-size: 1.5rem; /* Font size */
+    display: inline-block; 
+    background-color: #005c99; 
+    color: #ffffff; 
+    padding: 1rem 2rem; 
+    text-decoration: none; 
+    font-size: 1.5rem; 
 }
 
 .btn:hover {
-  background-color: #003366; /* Darker blue on hover */
+    background-color: #003366; 
 }
 
-
-/******* DMC Image Styles ***************/
-/* Car image */
-
+/******* DMC Image Styles ***************/ 
 .dmc-image {
-    position: absolute; /* Absolute positioning */
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
+    position: absolute; 
+    width: 100%; 
+    height: 100%; 
 }
 
-/******* Reviews and Upgrades Section ***************/
-
+/******* Reviews and Upgrades Section ***************/ 
 #delorean-content {
-  display: flex; /* Flexbox layout */
-  justify-content: space-between; /* Space between columns */
-  gap: 2rem; /* Gap between columns */
+    display: flex; 
+    justify-content: space-between; 
+    gap: 2rem; 
 }
 
-#reviews {
-    flex: 1; /* Flex-grow for equal width */
-    order: 2; /* Move reviews to the right */
-}
-
+#reviews,
 #upgrades {
-    flex: 1; /* Flex-grow for equal width */
-    order: 1; /* Move upgrades to the left */
+    flex: 1; 
 }
 
-/******* Upgrade Grid Styles ***************/
-
+/******* Upgrade Grid Styles ***************/ 
 .upgrade-grid {
-    display: grid; /* Grid layout */
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
-    gap: 10px; /* Space between grid items */
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 10px; 
 }
 
 .upgrade-item img {
-    background-color: #00b8e6; /* Background color for images */
-    width: 100%; /* Full width */
-    height: 100px; /* Fixed height */
-    object-fit: contain; /* Maintain aspect ratio */
-    padding: 10px; /* Padding around images */
-
+    background-color: #00b8e6; 
+    width: 100%; 
+    height: 100px; 
+    object-fit: contain; 
+    padding: 10px; 
 }
 
 .upgrade-item {
-    text-align: center; /* Centra el texto dentro del contenedor */
+    text-align: center; 
 }
 
-
-/******* Reviews Section Styles ***************/
-/*  Styles for the reviews section */
+/******* Reviews Section Styles ***************/ 
 #reviews ul {
     padding: 1rem;
     font-size: 1.5rem;
@@ -189,27 +176,174 @@ main {
     margin-bottom: 1rem;
 }
 
-/******* Responsive Design ***************/
- /* Responsive styles for small screens */
+/******* Vehicle Details Section ***************/ 
+.vehicle-detail {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.vehicle-detail img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+/******* Vehicle Info ***************/ 
+.vehicle-info {
+    flex: 1;
+    padding: 20px;
+}
+
+.vehicle-info h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.vehicle-info p {
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.vehicle-info .price {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #e60000;
+}
+
+.vehicle-info .details {
+    font-size: 1.25rem;
+    line-height: 1.5;
+    color: #555;
+}
+
+.vehicle-info .details span {
+    font-weight: bold;
+}
+
+/******* Inventory Display ***************/ 
+#inv-display {
+    list-style-type: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    gap: 20px; 
+    justify-items: center; 
+}
+
+#inv-display li {
+    width: 200px; 
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+}
+
+#inv-display li > a {
+    display: block;
+}
+
+#inv-display img {
+    width: 100%;
+    height: auto; 
+}
+
+.namePrice {
+    padding: 10px; 
+}
+
+.namePrice h2 {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+}
+
+.namePrice a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.namePrice a:hover {
+    text-decoration: underline;
+}
+
+.namePrice span {
+    font-weight: bold;
+    color: #e60000;
+    font-size: 14px;
+    display: block;
+    margin-top: 3px;
+}
+
+/******* Media Queries ***************/ 
 @media (max-width: 768px) {
+    #inv-display {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+
+    .vehicle-detail {
+        flex-direction: column; 
+    }
+
+    .vehicle-info h1 {
+        font-size: 2rem; 
+    }
+
+    .vehicle-info p,
+    .vehicle-info .details {
+        font-size: 1.1rem; 
+    }
+
+    .vehicle-info .price {
+        font-size: 1.75rem; 
+    }
+
     #upgrades, #reviews {
-        width: 100%; /* Full width */
+        width: 100%; 
     }
     
     body {
-        background-image: none; /* Hide background image on small screens */
+        background-image: none; 
     }
     
     #wrapper {
-        max-width: 100%; /* Full width for wrapper */
-        margin: 0; /* Remove margin */
+        max-width: 100%; 
+        margin: 0; 
     }
     
     #delorean-content {
-        display: block; /* Stack items in block layout */
+        display: block; 
     }
 
     .dmc-image {
-        content: url('../images/vehicles/delorean-tn.jpg'); /* Change image on mobile */
+        content: url('../images/vehicles/delorean-tn.jpg'); 
+    }
+
+    /* Adjust navigation for smaller screens */
+    nav ul {
+        flex-direction: column; /* Stack items vertically */
+    }
+
+    nav ul li {
+        text-align: center;
+        padding: 0.5rem 1rem; /* Adjust padding for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    #inv-display {
+        grid-template-columns: 1fr; 
+    }
+
+    .vehicle-info h1 {
+        font-size: 1.5rem; /* Reduce font size for smaller screens */
+    }
+
+    .vehicle-info .price {
+        font-size: 1.5rem; /* Reduce price font size */
     }
 }
