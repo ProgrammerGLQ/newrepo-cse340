@@ -1,0 +1,42 @@
+<h1><%= title %></h1>
+
+<%- messages() %>
+
+<% if (errors) { %>
+  <ul class="notice">
+ <% errors.array().forEach(error => { %>
+   <li><%= error.msg %></li>
+<%  }) %>
+ </ul>
+<% } %>
+
+<div class="register-container">
+  <form action="/account/register" method="post" class="register-form">
+    <div class="form-group">
+      <label for="account_firstname">First Name:</label>
+      <input type="text" id="account_firstname" name="account_firstname" required placeholder="Enter your first name">
+    </div>
+    <div class="form-group">
+      <label for="account_lastname">Last Name:</label>
+      <input type="text" id="account_lastname" name="account_lastname" required placeholder="Enter your last name">
+    </div>
+    <div class="form-group">
+      <label for="account_email">Email Address:</label>
+      <input type="email" id="account_email" name="account_email" required placeholder="Enter a email address">
+    </div>
+    <div class="form-group">
+      <label for="account_password">Password:</label>
+      <input type="password" id="account_password" name="account_password" required 
+      pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{12,}" 
+      title="Must contain at least one number, one uppercase letter, one lowercase letter, one special character, and at least 12 or more characters" 
+      placeholder="Create a strong password">
+    </div>
+
+    <div class="password-requirements">
+      <p>Password must be at least 12 characters long, contain at least 1 uppercase letter, 1 number, and 1 special character.</p>
+    </div>
+
+    <button type="submit" class="btn-primary">Register</button>
+  </form>
+  <p class="login-link">Already have an account? <a href="/account/login">Login</a></p>
+</div>
