@@ -46,6 +46,12 @@ router.post(
     utilities.handleErrors(invController.updateInventory)
 )
 
+// Route to delete inventory item
+router.get("/delete/:invId", utilities.handleErrors(invController.deleteView))
+
+// Process the delete
+router.post("/delete", utilities.handleErrors(invController.deleteItem))
+
 // Route to intentionally trigger a 500 error
 router.get("/cause-error", utilities.handleErrors(invController.triggerError));
 
