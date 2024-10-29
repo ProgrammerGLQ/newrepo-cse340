@@ -469,6 +469,123 @@ main {
     background-color: #45a049;
 }
 
+/* NEW */
+/* Estilos para la tabla de inventario */
+#inventoryDisplay {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+#inventoryDisplay thead {
+    background-color: #333;
+    color: white;
+}
+
+#inventoryDisplay th,
+#inventoryDisplay td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#inventoryDisplay tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Estilos para los enlaces de Modify y Delete */
+#inventoryDisplay a {
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+#inventoryDisplay a[href*='/inv/edit/'] {
+    background-color: #4CAF50; /* Verde para Modify */
+}
+
+#inventoryDisplay a[href*='/inv/delete/'] {
+    background-color: #f44336; /* Rojo para Delete */
+}
+
+#inventoryDisplay a:hover {
+    opacity: 0.8;
+}
+
+/* Estilos para el select de clasificación */
+#classification_id {
+    width: 100%;
+    max-width: 300px;
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#classification_id:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+/* Estilos responsivos */
+@media screen and (max-width: 600px) {
+    #inventoryDisplay {
+        font-size: 14px;
+    }
+
+    #inventoryDisplay th,
+    #inventoryDisplay td {
+        padding: 8px;
+    }
+
+    #inventoryDisplay a {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+}
+
+/* Estilos adicionales para mejorar la presentación */
+.inventory-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.inventory-header {
+    margin-bottom: 20px;
+}
+
+.inventory-header h1 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Estilos para mensajes de error o éxito */
+.message {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+.success {
+    background-color: #dff0d8;
+    color: #3c763d;
+    border: 1px solid #d6e9c6;
+}
+
+.error {
+    background-color: #f2dede;
+    color: #a94442;
+    border: 1px solid #ebccd1;
+}
+
 /******* Media Queries ***************/ 
 @media (max-width: 768px) {
     #inv-display {

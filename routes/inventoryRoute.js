@@ -34,6 +34,10 @@ router.get("/type/:classificationId", utilities.handleErrors(invController.build
 // Route to get the detail of a specific vehicle by its ID
 router.get("/detail/:invId", utilities.handleErrors(invController.getVehicleById));
 
+// Route to get inventory by classification id - New Route
+router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
+
+
 // Route to intentionally trigger a 500 error
 router.get("/cause-error", utilities.handleErrors(invController.triggerError));
 
