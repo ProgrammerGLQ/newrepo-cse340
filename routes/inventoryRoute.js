@@ -21,8 +21,6 @@ router.post(
     utilities.handleErrors(invController.addInventory)
 )
 
-
-
 // Route to build inventory management view
 router.get("/", utilities.handleErrors(invController.buildManagementView));
 router.get("/add-classification", utilities.handleErrors(invController.buildAddClassification));
@@ -37,6 +35,16 @@ router.get("/detail/:invId", utilities.handleErrors(invController.getVehicleById
 // Route to get inventory by classification id - New Route
 router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
 
+// Route to edit inventory item
+router.get("/edit/:invId", utilities.handleErrors(invController.editInventoryView))
+
+// Process the update inventory form
+router.post(
+    "/update/",
+    invValidate.inventoryRules(),
+    invValidate.checkUpdateData,
+    utilities.handleErrors(invController.updateInventory)
+)
 
 // Route to intentionally trigger a 500 error
 router.get("/cause-error", utilities.handleErrors(invController.triggerError));
