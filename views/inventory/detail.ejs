@@ -1,5 +1,28 @@
-
-
+<% if (title) { %>
   <h1><%= title %></h1>
-  <%- vehicleHtml %>
+<% } else {
+  res.redirect('/')
+} %>
 
+<%- messages() %>
+
+<% if (vehicleHtml) { %>
+  <%- vehicleHtml %>
+  
+  <% if (locals.loggedin) { %>
+    <div class="favorite-controls">
+      <% if (isFavorite) { %>
+        <form action="/inv/favorite/remove/<%= inv_id %>" method="POST">
+          <button type="submit" class="favorite-btn remove">Remove from Favorites</button>
+        </form>
+      <% } else { %>
+        <form action="/inv/favorite/add/<%= inv_id %>" method="POST">
+          <button type="submit" class="favorite-btn add">Add to Favorites</button>
+        </form>
+      <% } %>
+    </div>
+  <% } %>
+
+<% } else { %>
+  <p class="notice">Sorry, no matching vehicle could be found.</p>
+<% } %>

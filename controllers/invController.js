@@ -25,33 +25,36 @@ invCont.buildByClassificationId = async function (req, res, next) {
  * ************************** */
 invCont.getVehicleById = async function (req, res, next) {
   try {
-    // Get the vehicle ID from the URL parameters
-    const invId = req.params.invId;
-
-    // Call the model function to retrieve the vehicle's data
-    const vehicleData = await invModel.getVehicleById(invId);
+    const invId = req.params.invId
+    const vehicleData = await invModel.getVehicleById(invId)
     
-    // If no vehicle is found, return a 404 error
     if (!vehicleData) {
-      const err = new Error("Vehicle not found");
-      err.status = 404;
-      return next(err);
+      const err = new Error("Vehicle not found")
+      err.status = 404
+      return next(err)
     }
 
-    // Build the vehicle-specific HTML using the utilities function
-    const vehicleHtml = await utilities.buildVehicleHtml(vehicleData);
+    let isFavorite = false
+    if (res.locals.loggedin) {
+      isFavorite = await invModel.checkIfFavorite(
+        res.locals.accountData.account_id,
+        invId
+      )
+    }
 
-    // Render the 'detail.ejs' view with the vehicle's data
+    const vehicleHtml = await utilities.buildVehicleHtml(vehicleData)
+
     res.render("./inventory/detail", {
       title: vehicleData.inv_make + " " + vehicleData.inv_model,
       nav: await utilities.getNav(),
-      vehicleHtml: vehicleHtml
-    });
+      vehicleHtml: vehicleHtml,
+      isFavorite: isFavorite,
+      inv_id: vehicleData.inv_id
+    })
   } catch (error) {
-    // Handle any errors
-    next(error);
+    next(error)
   }
-};
+}
 
 /* ***************************
  *  Intentionally Trigger a 500 Error
@@ -361,5 +364,89 @@ invCont.deleteItem = async function (req, res, next) {
   }
 }
 
+/* ***************************
+ *  Build user's favorites view
+ * ************************** */
+invCont.buildFavoritesView = async function (req, res) {
+  try {
+    let nav = await utilities.getNav()
+    
+    // 
+    if (!res.locals.loggedin) {
+      req.flash("notice", "Please log in to view favorites")
+      return res.redirect("/account/login")
+    }
+
+    const account_id = res.locals.accountData.account_id
+    const favorites = await invModel.getFavorites(account_id)
+    
+    res.render("account/favorites", {
+      title: "My Favorites",
+      nav,
+      favorites: favorites || [], // 
+      errors: null
+    })
+  } catch (error) {
+    console.error("Error in buildFavoritesView:", error)
+    req.flash("notice", "An error occurred while loading favorites")
+    res.redirect("/account/")
+  }
+}
+
+/* ***************************
+ *  Add to favorites
+ * ************************** */
+invCont.addToFavorites = async function (req, res) {
+  const inv_id = parseInt(req.params.invId)
+  const account_id = res.locals.accountData.account_id
+
+  try {
+    const isAlreadyFavorite = await invModel.checkIfFavorite(account_id, inv_id)
+    
+    if (isAlreadyFavorite) {
+      req.flash("notice", "Vehicle is already in favorites")
+      return res.redirect(`/inv/detail/${inv_id}`)
+    }
+
+    const result = await invModel.addFavorite(account_id, inv_id)
+    
+    if (result) {
+      req.flash("notice", "Vehicle added to favorites")
+    } else {
+      req.flash("notice", "Failed to add to favorites")
+    }
+    
+    res.redirect(`/inv/detail/${inv_id}`)
+  } catch (error) {
+    console.error("Error in addToFavorites:", error)
+    req.flash("notice", "An error occurred while adding to favorites")
+    res.redirect(`/inv/detail/${inv_id}`)
+  }
+}
+
+/* ***************************
+ *  Remove from favorites
+ * ************************** */
+invCont.removeFromFavorites = async function (req, res) {
+  const inv_id = parseInt(req.params.invId)
+  const account_id = res.locals.accountData.account_id
+
+  try {
+    const result = await invModel.removeFavorite(account_id, inv_id)
+    
+    if (result) {
+      req.flash("notice", "Vehicle removed from favorites")
+    } else {
+      req.flash("notice", "Failed to remove from favorites")
+    }
+    
+    //
+    res.redirect('/account/favorites')
+  } catch (error) {
+    console.error("Error in removeFromFavorites:", error)
+    req.flash("notice", "An error occurred while removing from favorites")
+    res.redirect('/account/favorites')
+  }
+}
 
 module.exports = invCont;

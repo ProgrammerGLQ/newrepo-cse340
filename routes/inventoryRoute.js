@@ -92,4 +92,17 @@ router.post("/delete",
 // Route to intentionally trigger a 500 error
 router.get("/cause-error", utilities.handleErrors(invController.triggerError));
 
+// Favorites
+router.post("/favorite/add/:invId", 
+    utilities.checkLogin,
+    utilities.handleErrors(invController.addToFavorites)
+)
+
+router.post("/favorite/remove/:invId", 
+    utilities.checkLogin,
+    utilities.handleErrors(invController.removeFromFavorites)
+)
+
+
+
 module.exports = router;

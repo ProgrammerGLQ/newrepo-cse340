@@ -353,11 +353,10 @@ main {
   .signup-link {
     text-align: center;
     margin-top: 15px;
-    color: white;
   }
   
   .signup-link a {
-    color: #007bff;
+    color: #003165;
     text-decoration: underline;
   }
 /* Register */
@@ -385,11 +384,10 @@ main {
   .login-link {
     text-align: center;
     margin-top: 15px;
-    color: white;
   }
   
   .login-link a {
-    color: #007bff;
+    color: #023c79;
     text-decoration: underline;
   }
   
@@ -458,7 +456,7 @@ main {
 
 .management-links a {
     padding: 10px;
-    background-color: #4CAF50;
+    background-color: #38823b;
     color: white;
     text-decoration: none;
     text-align: center;
@@ -470,7 +468,6 @@ main {
 }
 
 /* NEW */
-/* Estilos para la tabla de inventario */
 #inventoryDisplay {
     width: 100%;
     margin-top: 20px;
@@ -495,7 +492,7 @@ main {
     background-color: #f5f5f5;
 }
 
-/* Estilos para los enlaces de Modify y Delete */
+
 #inventoryDisplay a {
     text-decoration: none;
     padding: 6px 12px;
@@ -506,18 +503,18 @@ main {
 }
 
 #inventoryDisplay a[href*='/inv/edit/'] {
-    background-color: #4CAF50; /* Verde para Modify */
+    background-color: #3b853d; 
 }
 
 #inventoryDisplay a[href*='/inv/delete/'] {
-    background-color: #f44336; /* Rojo para Delete */
+    background-color: #b53228; 
 }
 
 #inventoryDisplay a:hover {
     opacity: 0.8;
 }
 
-/* Estilos para el select de clasificación */
+
 #classification_id {
     width: 100%;
     max-width: 300px;
@@ -534,7 +531,7 @@ main {
     box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
 }
 
-/* Estilos responsivos */
+
 @media screen and (max-width: 600px) {
     #inventoryDisplay {
         font-size: 14px;
@@ -551,7 +548,7 @@ main {
     }
 }
 
-/* Estilos adicionales para mejorar la presentación */
+
 .inventory-container {
     padding: 20px;
     max-width: 1200px;
@@ -567,7 +564,7 @@ main {
     margin-bottom: 10px;
 }
 
-/* Estilos para mensajes de error o éxito */
+
 .message {
     padding: 10px;
     margin: 10px 0;
@@ -587,6 +584,219 @@ main {
 }
 
 
+
+.favorites-container {
+    padding: 1rem;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.favorite-item {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    background-color: #ffffff;
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1);
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.favorite-item img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.favorite-item h3 {
+    font-size: 1.2rem;
+    margin: 0 0 0.5rem 0;
+    text-align: center;
+}
+
+.favorite-item p {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0 0 1rem 0;
+}
+
+.btn, .btn-remove, .favorite-btn {
+    display: inline-block;
+    width: auto;
+    min-width: 150px;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0;
+    text-align: center;
+    border: none;
+    border-radius: 0.25rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+
+
+
+
+.btn-remove, .favorite-btn.remove {
+    background-color: #a90101;
+    color: white;
+}
+
+.btn-remove:hover, .favorite-btn.remove:hover {
+    background-color: #ff3333;
+}
+
+.favorite-btn.add {
+    background-color: #005c99; ;
+    color: white;
+}
+
+.favorite-btn.add:hover {
+    background-color: #2980b9;
+}
+
+.favorite-item form {
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+.account-link {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: #368438;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+
+.account-link:hover {
+    background-color: #45a049;
+    text-decoration: none;
+}
+
+.account-link[href*="favorites"] {
+    background-color: #26658f;
+}
+
+.account-link[href*="favorites"]:hover {
+    background-color: #2980b9;
+}
+
+.account-link[href*="update"] {
+    background-color: #a16b14;
+}
+
+.account-link[href*="update"]:hover {
+    background-color: #d68910;
+}
+
+
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px; 
+}
+
+.form-container form {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.form-container fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.form-container legend {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #444;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+    width: 100%;
+}
+
+.form-container label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: 500;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.form-container button[type="submit"] {
+    background-color: #387f3b;
+    color: white;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    width: 100%;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.form-container button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.password-rules {
+    font-size: 0.9em;
+    color: #666;
+    margin: 15px 0;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    line-height: 1.4;
+}
+
+.password-form {
+    margin-top: 30px;
+}
+
+
+
+.password-form button[type="submit"] {
+    background-color: #266e9e;
+}
+
+.password-form button[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 40px;
+    font-size: 2em;
+}
 
 
 
@@ -635,14 +845,14 @@ main {
         content: url('../images/vehicles/delorean-tn.jpg'); 
     }
 
-    /* Adjust navigation for smaller screens */
+ 
     nav ul {
-        flex-direction: column; /* Stack items vertically */
+        flex-direction: column; 
     }
 
     nav ul li {
         text-align: center;
-        padding: 0.5rem 1rem; /* Adjust padding for smaller screens */
+        padding: 0.5rem 1rem; 
     }
 }
 
@@ -652,10 +862,10 @@ main {
     }
 
     .vehicle-info h1 {
-        font-size: 1.5rem; /* Reduce font size for smaller screens */
+        font-size: 1.5rem; 
     }
 
     .vehicle-info .price {
-        font-size: 1.5rem; /* Reduce price font size */
+        font-size: 1.5rem; 
     }
 }

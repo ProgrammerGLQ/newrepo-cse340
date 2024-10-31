@@ -4,6 +4,13 @@ const router = new express.Router()
 const accountController = require("../controllers/accountController")
 const utilities = require("../utilities")
 const regValidate = require('../utilities/account-validation')
+const invController = require("../controllers/invController")
+
+// Route for viewing favorites
+router.get("/favorites", 
+    utilities.checkLogin,
+    utilities.handleErrors(invController.buildFavoritesView)
+)
 
 // Route to build login view
 router.get("/login", utilities.handleErrors(accountController.buildLogin))

@@ -29,7 +29,7 @@ validate.inventoryRules = () => {
             .trim()
             .isLength({ min: 1 })
             .withMessage("Please provide the vehicle model."),
-        // Añadir más reglas según necesites
+       
     ]
 }
 
@@ -142,7 +142,6 @@ validate.checkInventoryData = async (req, res, next) => {
 
 
 
-// ... (código anterior sin cambios)
 
 /* ******************************
  * Check inventory data and return errors or proceed to update

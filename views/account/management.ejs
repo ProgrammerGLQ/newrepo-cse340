@@ -12,14 +12,15 @@
   </ul>
 <% } %>
 
-
 <h2>Welcome <%= accountData.account_firstname %></h2>
 
+<div class="account-actions">
+  <p><a href="/account/update/<%= accountData.account_id %>" class="account-link update-link">Update Account Information</a></p>
+  
+  <p><a href="/account/favorites" class="account-link favorites-link">View My Favorites</a></p>
 
-<p><a href="/account/update/<%= accountData.account_id %>">Update Account Information</a></p>
-
-
-<% if (accountData.account_type === "Employee" || accountData.account_type === "Admin") { %>
-  <h3>Inventory Management</h3>
-  <p><a href="/inv/">Manage Inventory</a></p>
-<% } %>
+  <% if (accountData.account_type === "Employee" || accountData.account_type === "Admin") { %>
+    <h3>Inventory Management</h3>
+    <p><a href="/inv/" class="account-link management-link" id="inventory-management">Manage Inventory</a></p>
+  <% } %>
+</div>

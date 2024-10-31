@@ -124,7 +124,66 @@ async function deleteInventoryItem(inv_id) {
   }
 }
 
+/* ***************************
+ *  Check if vehicle is in favorites
+ * ************************** */
+async function checkIfFavorite(account_id, inv_id) {
+  try {
+    const sql = "SELECT * FROM favorite WHERE account_id = $1 AND inv_id = $2"
+    const result = await pool.query(sql, [account_id, inv_id])
+    return result.rowCount > 0
+  } catch (error) {
+    console.error("checkIfFavorite error: " + error)
+    return false
+  }
+}
 
+/* ***************************
+ *  Add to favorites
+ * ************************** */
+async function addFavorite(account_id, inv_id) {
+  try {
+    const sql = "INSERT INTO favorite (account_id, inv_id) VALUES ($1, $2) RETURNING *"
+    const result = await pool.query(sql, [account_id, inv_id])
+    return result.rows[0]
+  } catch (error) {
+    console.error("addFavorite error: " + error)
+    return false
+  }
+}
+
+/* ***************************
+ *  Remove from favorites
+ * ************************** */
+async function removeFavorite(account_id, inv_id) {
+  try {
+    const sql = "DELETE FROM favorite WHERE account_id = $1 AND inv_id = $2"
+    const result = await pool.query(sql, [account_id, inv_id])
+    return result.rowCount > 0
+  } catch (error) {
+    console.error("removeFavorite error: " + error)
+    return false
+  }
+}
+
+/* ***************************
+ *  Get user's favorites
+ * ************************** */
+async function getFavorites(account_id) {
+  try {
+    const sql = `
+      SELECT i.*, c.classification_name
+      FROM inventory i
+      JOIN classification c ON i.classification_id = c.classification_id
+      JOIN favorite f ON i.inv_id = f.inv_id
+      WHERE f.account_id = $1`
+    const result = await pool.query(sql, [account_id])
+    return result.rows
+  } catch (error) {
+    console.error("getFavorites error: " + error)
+    return []
+  }
+}
 
 
 module.exports = {
@@ -134,5 +193,9 @@ module.exports = {
   addClassification,
   addInventory,
   updateInventory,
-  deleteInventoryItem 
+  deleteInventoryItem,
+  checkIfFavorite,
+  addFavorite,
+  removeFavorite,
+  getFavorites
 }
